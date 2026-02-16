@@ -1,4 +1,5 @@
 export { AboutDialog } from './AboutDialog';
+export { CompressPdfDialog } from './CompressPdfDialog';
 export { DeletePageDialog } from './DeletePageDialog';
 export { ExportDialog } from './ExportDialog';
 export { GoToPageDialog } from './GoToPageDialog';

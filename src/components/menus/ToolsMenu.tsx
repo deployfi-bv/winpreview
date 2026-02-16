@@ -13,7 +13,7 @@ export function ToolsMenu() {
     currentPageIndex,
     setActiveTool, openResizeDialog, openInspectorDialog,
     toggleSketchRecognition, toggleColorAdjustmentPanel,
-    openOcrDialog, rotatePage,
+    openOcrDialog, openCompressPdfDialog, rotatePage,
   } = useAppState();
 
   const selectTool = (toolId: string) => {
@@ -107,6 +107,9 @@ export function ToolsMenu() {
         </MenubarItem>
         <MenubarItem onClick={openOcrDialog} disabled={!isDocumentOpen}>
           OCR / Live Text…
+        </MenubarItem>
+        <MenubarItem onClick={openCompressPdfDialog} disabled={!isDocumentOpen}>
+          Compress PDF…
         </MenubarItem>
         <MenubarSeparator />
         <MenubarItem onClick={openInspectorDialog} disabled={!isDocumentOpen}>

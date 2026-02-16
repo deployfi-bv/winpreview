@@ -22,5 +22,7 @@ export function createDialogActions(setState: SetState) {
     closeAboutDialog: () => setState((p) => ({ ...p, isAboutDialogOpen: false })),
     openTetrisDialog: () => setState((p) => ({ ...p, isTetrisDialogOpen: true })),
     closeTetrisDialog: () => setState((p) => ({ ...p, isTetrisDialogOpen: false })),
+    openCompressPdfDialog: () => setState((p) => ({ ...p, isCompressPdfDialogOpen: true })),
+    closeCompressPdfDialog: () => setState((p) => ({ ...p, isCompressPdfDialogOpen: false })),
   };
 }

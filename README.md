@@ -14,6 +14,7 @@ A Windows-friendly, local-first document viewer and editor for multi-page PDFs a
 - **Selection & editing** — 8-handle resize, drag-to-move, clipboard (copy/cut/paste), undo/redo stack, Select All
 - **Text & search** — Native PDF text selection and copy, full-text search with match highlighting (Ctrl+F), case-sensitive toggle, prev/next navigation
 - **OCR** — On-device OCR via PaddleOCR (ONNX Runtime), auto language detection (English/Latin/Cyrillic), invisible text layer in exported PDFs
+- **PDF compression** — Downscale + JPEG recompress scanned pages with 3 size presets (Email ~200KB/pg, Compact ~100KB/pg, Light ~150KB/pg), optional OCR, undo support
 - **Views** — Zoom (fit width/fit page/actual size), contact sheet, loupe magnifier, mask tool, fullscreen
 - **PDF forms** — Interactive form field filling with checkbox, radio, text, dropdown support; editable or flattened export
 - **Clickable links** — PDF hyperlinks rendered as clickable overlays
@@ -33,7 +34,7 @@ A Windows-friendly, local-first document viewer and editor for multi-page PDFs a
 - **ONNX Runtime Web** — On-device OCR inference (PaddleOCR PP-OCRv3/v5 models)
 - **@tanstack/react-virtual** — Virtualized thumbnail sidebar
 - **IndexedDB (idb)** — Client-side persistence
-- **Vitest** + **Playwright** — 443 unit tests + E2E testing
+- **Vitest** + **Playwright** — 442 unit tests + E2E testing
 
 ## Getting Started
 
@@ -54,13 +55,13 @@ npm run preview   # serve production build locally
 ## Testing
 
 ```bash
-npm test              # unit tests (443 tests)
+npm test              # unit tests (442 tests)
 npm run test:coverage # with coverage report
 ```
 
 ## Architecture
 
-Frontend-only SPA — no backend. All document processing (PDF parsing, OCR, export) runs in the browser via Web Workers and WASM. Annotations are stored as vector models (source of truth), rendered to canvas, and flattened into PDF on export.
+Frontend-only SPA — no backend. All document processing (PDF parsing, OCR, export, compression) runs in the browser via Web Workers and WASM. Annotations are stored as vector models (source of truth), rendered to canvas, and flattened into PDF on export.
 
 Built with an agentic swarm development process — orchestrator delegates to specialist agents (planner, coder, gatekeeper, QA, UX reviewer) with full Playwright-based quality gates on every change.
 

@@ -84,6 +84,7 @@ export interface AppState {
   isDeletePageDialogOpen: boolean;
   isAboutDialogOpen: boolean;
   isTetrisDialogOpen: boolean;
+  isCompressPdfDialogOpen: boolean;
   isPagePickerDialogOpen: boolean;
   isCropMode: boolean;
 

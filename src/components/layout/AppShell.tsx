@@ -3,7 +3,7 @@ import { Group, Panel, Separator } from 'react-resizable-panels';
 import { CanvasArea } from '@/components/canvas/CanvasArea';
 import { PrintView } from '@/components/canvas/PrintView';
 import {
-AboutDialog,
+AboutDialog, CompressPdfDialog,
 DeletePageDialog, ExportDialog,   GoToPageDialog, InspectorDialog, OcrDialog,   PagePickerDialog,
 PasswordDialog, ResizeDialog,
   SignaturePadDialog, TetrisDialog, } from '@/components/dialogs';
@@ -99,6 +99,7 @@ export function AppShell() {
       <AboutDialog />
       <PagePickerDialog />
       <TetrisDialog />
+      <CompressPdfDialog />
     </div>
   );
 }

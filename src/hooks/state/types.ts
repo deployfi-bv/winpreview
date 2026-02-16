@@ -51,6 +51,8 @@ export interface AppContextValue extends AppState {
   closeAboutDialog: () => void;
   openTetrisDialog: () => void;
   closeTetrisDialog: () => void;
+  openCompressPdfDialog: () => void;
+  closeCompressPdfDialog: () => void;
   addAnnotation: (annotation: Annotation) => void;
   updateAnnotation: (id: string, updates: Partial<Annotation>) => void;
   deleteAnnotation: (id: string) => void;
@@ -113,4 +115,5 @@ export interface AppContextValue extends AppState {
   clearAllOcrResults: () => void;
   setOcrProcessing: (isProcessing: boolean) => void;
   setOcrProgress: (progress: { current: number; total: number } | null) => void;
+  compressPages: (preset: 'email' | 'compact' | 'light', runOcr: boolean, onProgress: (current: number, total: number, phase: string) => void, signal: AbortSignal) => Promise<void>;
 }

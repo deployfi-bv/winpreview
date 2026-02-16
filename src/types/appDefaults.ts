@@ -30,6 +30,7 @@ export const INITIAL_APP_STATE: AppState = {
   isDeletePageDialogOpen: false,
   isAboutDialogOpen: false,
   isTetrisDialogOpen: false,
+  isCompressPdfDialogOpen: false,
   isPagePickerDialogOpen: false,
   isCropMode: false,
   annotations: {},

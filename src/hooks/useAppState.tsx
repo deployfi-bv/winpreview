@@ -2,6 +2,7 @@ import { createContext, useCallback, useContext, useEffect, useState } from 'rea
 
 import { createAnnotationMutations } from '@/hooks/state/annotationMutations';
 import { createAnnotationSelection } from '@/hooks/state/annotationSelection';
+import { createCompressionActions } from '@/hooks/state/compressionActions';
 import { createDialogActions } from '@/hooks/state/dialogActions';
 import { createDocumentActions } from '@/hooks/state/documentActions';
 import { createOcrActions } from '@/hooks/state/ocrActions';
@@ -56,6 +57,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const view = createViewActions(state, setState);
   const ocr = createOcrActions(setState);
   const search = createSearchActions(setState);
+  const compression = createCompressionActions(setState, pushUndo);
 
   useEffect(() => {
     if (import.meta.env.DEV) {
@@ -71,6 +73,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
         ...state, pageCount, currentPage, currentPageId,
         ...dialogs, ...doc, ...annMut, ...annSel,
         ...pageOps, ...pageSel, ...pageSrc, ...clipboard, ...view, ...ocr, ...search,
+        ...compression,
         pagePickerState, openPagePickerDialog, closePagePickerDialog,
         undo, redo, pushUndo,
       }}
