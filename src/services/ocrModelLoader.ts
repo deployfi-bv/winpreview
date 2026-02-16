@@ -9,10 +9,10 @@ import type { InferenceSession } from 'onnxruntime-web';
 
 // Model paths (served from public/models/ocr/)
 const MODEL_PATHS = {
-  detection: '/models/ocr/det.onnx',
+  detection: '/models/ocr/det.bin',
   recognition: {
-    latin: '/models/ocr/languages/latin/rec.onnx',
-    eslav: '/models/ocr/languages/eslav/rec.onnx',
+    latin: '/models/ocr/languages/latin/rec.bin',
+    eslav: '/models/ocr/languages/eslav/rec.bin',
   },
   dictionary: {
     latin: '/models/ocr/languages/latin/dict.txt',
