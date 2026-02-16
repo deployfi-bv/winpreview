@@ -60,4 +60,4 @@ Frontend-only SPA — no backend. All document processing (PDF parsing, OCR, exp
 
 ## License
 
-Private — all rights reserved.
+Apache License 2.0 — see [LICENSE](LICENSE).
