@@ -1,0 +1,49 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Worktrees (superpowers convention)
+.worktrees/
+worktrees/
+
+# Logs
+*.log
+npm-debug.log*
+
+# QA screenshots & generated test scripts (local artifacts, not source)
+qa/screenshots_*/
+qa/final_verify/
+qa/*.png
+qa/*.pdf
+qa/test_*.py
+
+# OCR models (downloaded separately, too large for git)
+public/models/
+
+# ONNX Runtime WASM binaries (copied from node_modules, ~37MB)
+public/*.wasm
+public/*.mjs

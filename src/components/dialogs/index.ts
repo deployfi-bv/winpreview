@@ -1,0 +1,10 @@
+export { AboutDialog } from './AboutDialog';
+export { DeletePageDialog } from './DeletePageDialog';
+export { ExportDialog } from './ExportDialog';
+export { GoToPageDialog } from './GoToPageDialog';
+export { InspectorDialog } from './InspectorDialog';
+export { OcrDialog } from './OcrDialog';
+export { PagePickerDialog } from './PagePickerDialog';
+export { PasswordDialog } from './PasswordDialog';
+export { ResizeDialog } from './ResizeDialog';
+export { SignaturePadDialog } from './SignaturePadDialog';
