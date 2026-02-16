@@ -47,3 +47,5 @@ public/models/
 # ONNX Runtime WASM binaries (copied from node_modules, ~37MB)
 public/*.wasm
 public/*.mjs
+# But keep the JSEP worker — required at runtime for OCR
+!public/ort-wasm-simd-threaded.jsep.mjs
