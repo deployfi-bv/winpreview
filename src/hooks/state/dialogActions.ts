@@ -20,5 +20,7 @@ export function createDialogActions(setState: SetState) {
     closeDeletePageDialog: () => setState((p) => ({ ...p, isDeletePageDialogOpen: false })),
     openAboutDialog: () => setState((p) => ({ ...p, isAboutDialogOpen: true })),
     closeAboutDialog: () => setState((p) => ({ ...p, isAboutDialogOpen: false })),
+    openTetrisDialog: () => setState((p) => ({ ...p, isTetrisDialogOpen: true })),
+    closeTetrisDialog: () => setState((p) => ({ ...p, isTetrisDialogOpen: false })),
   };
 }

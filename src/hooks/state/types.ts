@@ -49,6 +49,8 @@ export interface AppContextValue extends AppState {
   closeDeletePageDialog: () => void;
   openAboutDialog: () => void;
   closeAboutDialog: () => void;
+  openTetrisDialog: () => void;
+  closeTetrisDialog: () => void;
   addAnnotation: (annotation: Annotation) => void;
   updateAnnotation: (id: string, updates: Partial<Annotation>) => void;
   deleteAnnotation: (id: string) => void;

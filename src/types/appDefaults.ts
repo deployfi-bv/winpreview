@@ -29,6 +29,7 @@ export const INITIAL_APP_STATE: AppState = {
   isOcrDialogOpen: false,
   isDeletePageDialogOpen: false,
   isAboutDialogOpen: false,
+  isTetrisDialogOpen: false,
   isPagePickerDialogOpen: false,
   isCropMode: false,
   annotations: {},

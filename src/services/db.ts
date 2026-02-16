@@ -8,7 +8,7 @@ import { openDB } from 'idb';
 import type { IDBPDatabase } from 'idb';
 
 const DB_NAME = 'winpreview';
-const DB_VERSION = 2;
+const DB_VERSION = 3;
 
 let dbPromise: Promise<IDBPDatabase> | null = null;
 
@@ -24,6 +24,10 @@ export function getDB(): Promise<IDBPDatabase> {
         // v2: pdf-binaries store
         if (oldVersion < 2) {
           db.createObjectStore('pdf-binaries', { keyPath: 'sessionId' });
+        }
+        // v3: tetris-high-scores store
+        if (oldVersion < 3) {
+          db.createObjectStore('tetris-high-scores', { keyPath: 'id' });
         }
       },
     });

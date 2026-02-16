@@ -8,3 +8,4 @@ export { PagePickerDialog } from './PagePickerDialog';
 export { PasswordDialog } from './PasswordDialog';
 export { ResizeDialog } from './ResizeDialog';
 export { SignaturePadDialog } from './SignaturePadDialog';
+export { TetrisDialog } from './TetrisDialog';

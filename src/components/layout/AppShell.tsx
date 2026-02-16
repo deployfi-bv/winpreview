@@ -6,7 +6,7 @@ import {
 AboutDialog,
 DeletePageDialog, ExportDialog,   GoToPageDialog, InspectorDialog, OcrDialog,   PagePickerDialog,
 PasswordDialog, ResizeDialog,
-  SignaturePadDialog, } from '@/components/dialogs';
+  SignaturePadDialog, TetrisDialog, } from '@/components/dialogs';
 import { AppMenubar } from '@/components/menus/AppMenubar';
 import { ColorAdjustmentPanel } from '@/components/panels/ColorAdjustmentPanel';
 import { ThumbnailPanel } from '@/components/sidebar/ThumbnailPanel';
@@ -98,6 +98,7 @@ export function AppShell() {
       <DeletePageDialog />
       <AboutDialog />
       <PagePickerDialog />
+      <TetrisDialog />
     </div>
   );
 }
