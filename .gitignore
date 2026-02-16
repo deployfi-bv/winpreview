@@ -41,8 +41,7 @@ qa/*.png
 qa/*.pdf
 qa/test_*.py
 
-# OCR models (downloaded separately, too large for git)
-public/models/
+# OCR models — tracked in git (*.bin + dict.txt, ~18MB total)
 
 # ONNX Runtime WASM binaries (copied from node_modules, ~37MB)
 public/*.wasm
