@@ -24,16 +24,14 @@ export function ExportDialog() {
   const [activeTab, setActiveTab] = useState<ExportFormat>('pdf');
   const [annotationMode, setAnnotationMode] = useState<AnnotationMode>('editable');
 
-  // Reset default tab when dialog opens based on current document type
+  // Always default to PDF when dialog opens
   useEffect(() => {
     if (isExportDialogOpen) {
-      const imageOnly = pages.length > 0 && pages.every(p => p.sourceFormat === 'image');
-      // Use queueMicrotask to defer setState and avoid synchronous update in effect
       queueMicrotask(() => {
-        setActiveTab(imageOnly ? 'png' : 'pdf');
+        setActiveTab('pdf');
       });
     }
-  }, [isExportDialogOpen, pages]);
+  }, [isExportDialogOpen]);
 
   // Detect multi-source
   const sourceIds = new Set(pages.map((p) => p.sourceId));

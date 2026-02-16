@@ -11,7 +11,32 @@ import type { Annotation } from '@/types/annotation';
 import type { PageData } from '@/types/page';
 import type { PDFDocument} from 'pdf-lib';
 
-/** Embed an image (PNG or JPG) as a full-bleed PDF page. */
+/** Convert non-PNG/JPG image bytes (e.g. WebP, GIF, BMP) to PNG via canvas. */
+async function convertToPng(imageBytes: Uint8Array): Promise<Uint8Array> {
+  const blob = new Blob([imageBytes as BlobPart]);
+  const url = URL.createObjectURL(blob);
+  try {
+    const img = new Image();
+    await new Promise<void>((resolve, reject) => {
+      img.onload = () => resolve();
+      img.onerror = () => reject(new Error('Failed to decode image for PDF embedding'));
+      img.src = url;
+    });
+    const canvas = document.createElement('canvas');
+    canvas.width = img.naturalWidth;
+    canvas.height = img.naturalHeight;
+    const ctx = canvas.getContext('2d')!;
+    ctx.drawImage(img, 0, 0);
+    const pngBlob = await new Promise<Blob>((resolve, reject) =>
+      canvas.toBlob(b => b ? resolve(b) : reject(new Error('Canvas toBlob failed')), 'image/png'),
+    );
+    return new Uint8Array(await pngBlob.arrayBuffer());
+  } finally {
+    URL.revokeObjectURL(url);
+  }
+}
+
+/** Embed an image (PNG, JPG, or any browser-supported format) as a full-bleed PDF page. */
 export async function embedImageAsPage(
   outDoc: PDFDocument,
   imageBytes: Uint8Array,
@@ -26,12 +51,9 @@ export async function embedImageAsPage(
   } else if (isJpg) {
     image = await outDoc.embedJpg(imageBytes);
   } else {
-    // Try PNG first, fall back to JPG
-    try {
-      image = await outDoc.embedPng(imageBytes);
-    } catch {
-      image = await outDoc.embedJpg(imageBytes);
-    }
+    // WebP, GIF, BMP, TIFF etc. — convert to PNG via canvas
+    const pngBytes = await convertToPng(imageBytes);
+    image = await outDoc.embedPng(pngBytes);
   }
 
   const page = outDoc.addPage([pageData.width, pageData.height]);
