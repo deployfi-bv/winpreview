@@ -2,6 +2,8 @@
 
 A Windows-friendly, local-first document viewer and editor for multi-page PDFs and images. Quickly assemble documents at page level — reorder, delete, replace pages, add annotations and text overlays, and export flattened PDFs. All processing runs client-side with zero external services.
 
+**[Live Demo](https://winpreview-demo.surge.sh)**
+
 ![Swarm Architecture](agentic_swarm.png)
 
 ## Features
